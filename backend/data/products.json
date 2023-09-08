@@ -1,0 +1,210 @@
+[
+    {
+      "name": "Product 1",
+      "price": 19.99,
+      "description": "This is the first product description.",
+      "ratings": 4.5,
+      "images": [
+        {
+          "public_id": "image1",
+          "url": "https://example.com/image1.jpg"
+        },
+        {
+          "public_id": "image2",
+          "url": "https://example.com/image2.jpg"
+        }
+      ],
+      "category": "Electronics",
+      "seller": "Seller 1",
+      "stock": 100,
+      "numOfReviews": 25,
+      "reviews": [
+        {
+          "name": "User 1",
+          "rating": 4.0,
+          "comment": "Great product!"
+        },
+        {
+          "name": "User 2",
+          "rating": 5.0,
+          "comment": "Excellent quality."
+        }
+      ],
+      "creadtedAt": "2023-09-02T12:00:00.000Z"
+    },
+    {
+      "name": "Product 2",
+      "price": 29.99,
+      "description": "This is the second product description.",
+      "ratings": 4.2,
+      "images": [
+        {
+          "public_id": "image3",
+          "url": "https://example.com/image3.jpg"
+        },
+        {
+          "public_id": "image4",
+          "url": "https://example.com/image4.jpg"
+        }
+      ],
+      "category": "Cameras",
+      "seller": "Seller 2",
+      "stock": 50,
+      "numOfReviews": 15,
+      "reviews": [
+        {
+          "name": "User 3",
+          "rating": 3.5,
+          "comment": "Decent product."
+        }
+      ],
+      "creadtedAt": "2023-09-02T13:00:00.000Z"
+    },
+    {
+      "name": "Product 3",
+      "price": 9.99,
+      "description": "This is the third product description.",
+      "ratings": 3.8,
+      "images": [
+        {
+          "public_id": "image5",
+          "url": "https://example.com/image5.jpg"
+        }
+      ],
+      "category": "Laptop",
+      "seller": "Seller 3",
+      "stock": 20,
+      "numOfReviews": 8,
+      "reviews": [],
+      "creadtedAt": "2023-09-02T14:00:00.000Z"
+    },
+    {
+      "name": "Product 4",
+      "price": 15.99,
+      "description": "This is the fourth product description.",
+      "ratings": 4.0,
+      "images": [
+        {
+          "public_id": "image6",
+          "url": "https://example.com/image6.jpg"
+        }
+      ],
+      "category": "Accessories",
+      "seller": "Seller 4",
+      "stock": 75,
+      "numOfReviews": 10,
+      "reviews": [],
+      "creadtedAt": "2023-09-02T15:00:00.000Z"
+    },
+    {
+      "name": "Product 5",
+      "price": 49.99,
+      "description": "This is the fifth product description.",
+      "ratings": 4.7,
+      "images": [
+        {
+          "public_id": "image7",
+          "url": "https://example.com/image7.jpg"
+        },
+        {
+          "public_id": "image8",
+          "url": "https://example.com/image8.jpg"
+        }
+      ],
+      "category": "Headphone",
+      "seller": "Seller 5",
+      "stock": 30,
+      "numOfReviews": 12,
+      "reviews": [
+        {
+          "name": "User 4",
+          "rating": 4.5,
+          "comment": "Impressive sound quality."
+        }
+      ],
+      "creadtedAt": "2023-09-02T16:00:00.000Z"
+    },
+    {
+      "name": "Product 6",
+      "price": 5.99,
+      "description": "This is the sixth product description.",
+      "ratings": 3.2,
+      "images": [
+        {
+          "public_id": "image9",
+          "url": "https://example.com/image9.jpg"
+        }
+      ],
+      "category": "Food",
+      "seller": "Seller 6",
+      "stock": 200,
+      "numOfReviews": 5,
+      "reviews": [],
+      "creadtedAt": "2023-09-02T17:00:00.000Z"
+    },
+    {
+      "name": "Product 7",
+      "price": 39.99,
+      "description": "This is the seventh product description.",
+      "ratings": 4.8,
+      "images": [
+        {
+          "public_id": "image10",
+          "url": "https://example.com/image10.jpg"
+        }
+      ],
+      "category": "Books",
+      "seller": "Seller 7",
+      "stock": 60,
+      "numOfReviews": 20,
+      "reviews": [
+        {
+          "name": "User 5",
+          "rating": 5.0,
+          "comment": "Must-read book!"
+        }
+      ],
+      "creadtedAt": "2023-09-02T18:00:00.000Z"
+    },
+    {
+      "name": "Product 8",
+      "price": 79.99,
+      "description": "This is the eighth product description.",
+      "ratings": 4.9,
+      "images": [
+        {
+          "public_id": "image11",
+          "url": "https://example.com/image11.jpg"
+        },
+        {
+          "public_id": "image12",
+          "url": "https://example.com/image12.jpg"
+        }
+      ],
+      "category": "Clothes/Shoes",
+      "seller": "Seller 8",
+      "stock": 40,
+      "numOfReviews": 18,
+      "reviews": [],
+      "creadtedAt": "2023-09-02T19:00:00.000Z"
+    },
+    {
+      "name": "Product 9",
+      "price": 12.99,
+      "description": "This is the ninth product description.",
+      "ratings": 3.6,
+      "images": [
+        {
+          "public_id": "image13",
+          "url": "https://example.com/image13.jpg"
+        }
+      ],
+      "category": "Beauty/Health",
+      "seller": "Seller 9",
+      "stock": 80,
+      "numOfReviews": 7,
+      "reviews": [],
+      "creadtedAt": "2023-09-02T20:00:00.000Z"
+    }
+]
+  

@@ -6,6 +6,9 @@ const APIFeatures = require('../utils/apiFeatures');
 
 //Create new product => /api/v1/admin/product/new
 exports.newProduct = catchAsyncErrors( async (req, res, next) => {
+    
+    req.body.user = req.user.id;
+
     const product = await Product.create(req.body);
 
     res.status(201).json({
@@ -29,7 +32,7 @@ exports.getProducts = catchAsyncErrors( async (req, res, next) => {
         success: true,
         // message: 'This route will show all products in database.'
         count: products.length,
-        productCount,
+        productCount,   
         products
     })
 })

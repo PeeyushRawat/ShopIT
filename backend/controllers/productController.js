@@ -20,18 +20,23 @@ exports.newProduct = catchAsyncErrors( async (req, res, next) => {
 // Get all products => /api/v1/products
 exports.getProducts = catchAsyncErrors( async (req, res, next) => {
 
-    const resPerPage = 8;
+    const resPerPage = 4;
     const productCount = await Product.countDocuments();
     const apiFeatures = new APIFeatures(Product.find(), req.query)
                             .search()
                             .filter()
-                            .pagination(resPerPage);
+    
+    // let products = await apiFeatures.query;
+    const filteredProductsCount = await apiFeatures.query.length;
+
+    apiFeatures.pagination(resPerPage);
     const products = await apiFeatures.query;
 
     res.status(200).json({
         success: true,
-        // message: 'This route will show all products in database.'
-        productCount,   
+        productCount,
+        resPerPage, 
+        filteredProductsCount,  
         products
     })
 })

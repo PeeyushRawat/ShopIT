@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import { Carousel } from 'react-bootstrap'
 
 import Loader from '../layouts/Loader'
-// import MetaData from '../layouts/MetaData'
+import MetaData from '../layouts/MetaData'
 
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
@@ -31,6 +31,7 @@ const ProductDetails = () => {
         <Fragment>
             {loading ? <Loader /> : (
                 <Fragment>
+                    <MetaData title={product.name} />
                     <div className="row f-flex justify-content-around">
                     <div className="col-12 col-lg-5 img-fluid" id="product_image">
                         <Carousel pause='hover'>

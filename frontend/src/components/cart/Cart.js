@@ -1,16 +1,15 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, createSearchParams, useNavigate } from 'react-router-dom'
 
 import MetaData from '../layouts/MetaData'
 
-import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import { addItemToCart, removeItemFromCart } from '../../actions/cartActions'
 
 const Cart = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const { cartItems } = useSelector(state => state.cart)
 
@@ -32,6 +31,16 @@ const Cart = () => {
         if(newQty <= 0 ) return;
 
         dispatch(addItemToCart(id, newQty))
+    }
+
+    const checkoutHandler = () => {
+        // navigate('/login?redirect=shipping')
+        navigate({
+            pathname: '/login',
+            search: `?${createSearchParams({
+                redirect: 'shipping'
+            })}`
+        })
     }
 
   return (
@@ -101,7 +110,8 @@ const Cart = () => {
                             <p>Est. total: <span className="order-summary-values">${cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0)}</span></p>
             
                             <hr />
-                            <button id="checkout_btn" className="btn btn-primary btn-block">Check out</button>
+                            <button id="checkout_btn" className="btn btn-primary btn-block" 
+                                onClick={checkoutHandler} >Check out</button>
                         </div>
                     </div>
                 </div>

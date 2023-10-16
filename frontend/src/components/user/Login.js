@@ -1,5 +1,5 @@
 import React, { Fragment,useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 
 import Loader from '../layouts/Loader'
 import MetaData from '../layouts/MetaData'
@@ -13,17 +13,23 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const alert = useAlert();
     const dispatch = useDispatch();
-
-    const { isAuthenticated, error, loading } = useSelector(state => state.auth);
-
     const navigate = useNavigate();
 
+    const { isAuthenticated, error, loading } = useSelector(state => state.auth);
+    // const { location } = useParams();
+    
+    const redirect = searchParams.get("redirect") ? `/${searchParams.get("redirect")}` : '/'
+    // const redirect = location.search ? location.search.split('=')[1] : '/'
+    
     useEffect(() => {
 
         if(isAuthenticated) {
-            navigate('/')
+            navigate(redirect)
         }
 
         if(error) {

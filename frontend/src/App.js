@@ -13,6 +13,9 @@ import ConfirmOrder from './components/cart/ConfirmOrder';
 import Payment from './components/cart/Payment';
 import OrderSuccess from './components/cart/OrderSuccess';
 
+import ListOrders from './components/order/ListOrders';
+import OrderDetails from './components/order/OrderDetails';
+
 import Login from './components/user/Login';
 import Register from './components/user/Register';
 import Profile from './components/user/Profile';
@@ -112,6 +115,21 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <UpdatePassword />
+                  </ProtectedRoute>
+                } exact 
+              />
+
+              <Route path = "/orders/me" 
+                element={
+                  <ProtectedRoute>
+                    <ListOrders />
+                  </ProtectedRoute>
+                } exact 
+              />
+              <Route path = "/order/:id" 
+                element={
+                  <ProtectedRoute>
+                    <OrderDetails />
                   </ProtectedRoute>
                 } exact 
               />

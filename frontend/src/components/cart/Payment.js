@@ -5,7 +5,7 @@ import CheckoutSteps from './CheckoutSteps'
 
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { createOrder, clearErrors } from '../../actions/orderActions'
 
 import { useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement } from '@stripe/react-stripe-js'
@@ -104,7 +104,7 @@ const Payment = () => {
 
                     order.paymentInfo = {
                         id: result.paymentIntent.id,
-                        atatus: result.paymentIntent.status
+                        status: result.paymentIntent.status
                     }
 
                     dispatch(createOrder(order))

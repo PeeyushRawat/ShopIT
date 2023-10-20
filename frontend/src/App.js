@@ -7,15 +7,18 @@ import Footer from './components/layouts/Footer'
 import Home from './components/Home';
 import ProductDetails from './components/product/ProductDetails';
 
+// Cart Imports
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
 import ConfirmOrder from './components/cart/ConfirmOrder';
 import Payment from './components/cart/Payment';
 import OrderSuccess from './components/cart/OrderSuccess';
 
+// Order Imports
 import ListOrders from './components/order/ListOrders';
 import OrderDetails from './components/order/OrderDetails';
 
+// Auth or User Imports
 import Login from './components/user/Login';
 import Register from './components/user/Register';
 import Profile from './components/user/Profile';
@@ -24,8 +27,15 @@ import UpdatePassword from './components/user/UpdatePassword';
 import ForgotPassword from './components/user/ForgotPassword';
 import NewPassword from './components/user/NewPassword';
 
+// Admin Imports
+import Dashboard from './components/admin/Dashboard';
+import ProductsList from './components/admin/ProductsList';
+import NewProduct from './components/admin/NewProduct';
+import UpdateProduct from './components/admin/UpdateProduct';
+
 import ProtectedRoute from './components/route/ProtectedRoute';
 import { loadUser } from './actions/userActions';
+import { useSelector } from 'react-redux';
 import store from './store';
 import axios from 'axios';
 
@@ -48,6 +58,8 @@ function App() {
     getStripeApiKey();
 
   }, [])
+
+  const { user, loading } = useSelector(state => state.auth)
 
   return (
     <Router>
@@ -136,7 +148,47 @@ function App() {
 
           </Routes>
         </div>
-        <Footer />
+
+        <Routes>
+          
+            <Route path = "/dashboard" 
+              isAdmin={true}
+               element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+               } exact 
+            />
+            <Route path = "/admin/products" 
+              isAdmin={true}
+               element={
+                <ProtectedRoute>
+                  <ProductsList />
+                </ProtectedRoute>
+               } exact 
+            />
+            <Route path = "/admin/product" 
+              isAdmin={true}
+               element={
+                <ProtectedRoute>
+                  <NewProduct />
+                </ProtectedRoute>
+               } exact 
+            />
+            <Route path = "/admin/product/:id" 
+              isAdmin={true}
+               element={
+                <ProtectedRoute>
+                  <UpdateProduct />
+                </ProtectedRoute>
+               } exact 
+            />
+            
+        </Routes>
+
+        {!loading && user.role !== 'admin' && (
+          <Footer />
+        )}
       </div>
     </Router>
   );

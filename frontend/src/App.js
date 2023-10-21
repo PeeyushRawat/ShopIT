@@ -32,6 +32,11 @@ import Dashboard from './components/admin/Dashboard';
 import ProductsList from './components/admin/ProductsList';
 import NewProduct from './components/admin/NewProduct';
 import UpdateProduct from './components/admin/UpdateProduct';
+import OrdersList from './components/admin/OrdersList';
+import ProcessOrder from './components/admin/ProcessOrder';
+import UsersList from './components/admin/UsersList';
+import UpdateUser from './components/admin/UpdateUser';
+import ProductReviews from './components/admin/ProductReviews';
 
 import ProtectedRoute from './components/route/ProtectedRoute';
 import { loadUser } from './actions/userActions';
@@ -183,10 +188,49 @@ function App() {
                 </ProtectedRoute>
                } exact 
             />
-            
+            <Route path = "/admin/orders" 
+              isAdmin={true}
+               element={
+                <ProtectedRoute>
+                  <OrdersList />
+                </ProtectedRoute>
+               } exact 
+            />
+            <Route path = "/admin/order/:id" 
+              isAdmin={true}
+               element={
+                <ProtectedRoute>
+                  <ProcessOrder />
+                </ProtectedRoute>
+               } exact 
+            />
+            <Route path = "/admin/users" 
+              isAdmin={true}
+               element={
+                <ProtectedRoute>
+                  <UsersList />
+                </ProtectedRoute>
+               } exact 
+            />
+            <Route path = "/admin/user/:id" 
+              isAdmin={true}
+               element={
+                <ProtectedRoute>
+                  <UpdateUser />
+                </ProtectedRoute>
+               } exact 
+            />
+            <Route path = "/admin/reviews" 
+              isAdmin={true}
+               element={
+                <ProtectedRoute>
+                  <ProductReviews />
+                </ProtectedRoute>
+               } exact 
+            />
         </Routes>
 
-        {!loading && user.role !== 'admin' && (
+        {!loading && user && user.role !== 'admin' && (
           <Footer />
         )}
       </div>

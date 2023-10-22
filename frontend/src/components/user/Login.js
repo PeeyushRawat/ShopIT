@@ -21,7 +21,6 @@ const Login = () => {
     const navigate = useNavigate();
 
     const { isAuthenticated, error, loading } = useSelector(state => state.auth);
-    // const { location } = useParams();
     
     const redirect = searchParams.get("redirect") ? `/${searchParams.get("redirect")}` : '/'
     // const redirect = location.search ? location.search.split('=')[1] : '/'

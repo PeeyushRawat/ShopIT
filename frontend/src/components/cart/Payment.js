@@ -119,7 +119,29 @@ const Payment = () => {
         } catch (error) {
             document.querySelector('#pay_btn').disable = false;
             alert.error(error.response.data.message)
-            console.log(error.response.data)
+        }
+    }
+
+    const codHandler = async (e) => {
+        e.preventDefault();
+
+        document.querySelector('#cod_btn').disable = true;
+
+        try {
+
+            // The payment is processed or not
+            order.paymentInfo = {
+                id: 'N/A (COD)',
+                status: "cod_pending"
+            }
+
+            dispatch(createOrder(order))
+
+            navigate('/success')
+            
+        } catch (error) {
+            document.querySelector('#cod_btn').disable = false;
+            alert.error(error.message)
         }
     }
 
@@ -172,8 +194,18 @@ const Payment = () => {
                         >
                         Pay {` - ${orderInfo && orderInfo.totalPrice}`}
                         </button>
+                        <hr />
+                        <button
+                            id="cod_btn"
+                            type="button"
+                            className="btn btn-block py-3"
+                            onClick={codHandler}
+                        >
+                        COD {` - ${orderInfo && orderInfo.totalPrice}`}
+                        </button>
             
                     </form>
+                    
                 </div>
             </div>
         
